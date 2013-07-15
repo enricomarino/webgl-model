@@ -1,0 +1,14 @@
+{
+  "name": "webgl-model",
+  "repo": "enricomarino/webgl-model",
+  "version": "0.1.0",
+  "description": "WebGL Model component",
+  "keywords": ["webgl", "model"],
+  "scripts": ["index.js"],
+  "dependencies": {
+  },
+  "development": {
+    "component/assert": "*"
+  },
+  "license": "MIT"
+}
