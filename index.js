@@ -44,7 +44,7 @@ module.exports = function (context) {
     }
     
     if (update || this.dynamic) {
-      program.bindAttribute(context, this.id + '-vertices', {
+      program.bind_attribute(this.id + '-vertices', {
         name: 'a_position',
         data: this.vertices,
         size: 3
@@ -52,7 +52,7 @@ module.exports = function (context) {
       return this;
     }
 
-    program.bindAttribute(context, this.id + '-vertices');
+    program.bind_attribute(context, this.id + '-vertices');
 
     return this;
   };
@@ -73,7 +73,7 @@ module.exports = function (context) {
     }
     
     if (update || this.dynamic) {
-      program.bindAttribute(context, this.id + '-colors', {
+      program.bind_attribute(this.id + '-colors', {
         name : 'a_color',
         data: this.colors,
         size: 4
@@ -81,7 +81,7 @@ module.exports = function (context) {
       return this;
     } 
 
-    program.bindAttribute(context, this.id + '-colors');
+    program.bind_attribute(this.id + '-colors');
     return this;
   };
 
@@ -101,14 +101,14 @@ module.exports = function (context) {
     }
     
     if (update || this.dynamic) {
-      program.bindAttribute(context, this.id + '-indices', {
-          attributeType: gl.ELEMENT_ARRAY_BUFFER
+      program.bind_attribute(this.id + '-indices', {
+          attributeType: context.ELEMENT_ARRAY_BUFFER
         , data: this.indices
       });
       return this;
     }
 
-    program.bindAttribute(context, this.id + '-indices');
+    program.bind_attribute(this.id + '-indices');
     return this;
   };
 
@@ -122,7 +122,7 @@ module.exports = function (context) {
   
   Model.prototype.draw = function () {
     if (this.indices) {
-      context.drawElements(this.drawType, this.indices.length, gl.UNSIGNED_SHORT, 0);
+      context.drawElements(this.drawType, this.indices.length, context.UNSIGNED_SHORT, 0);
       return this;
     }
     if (this.vertices) {
